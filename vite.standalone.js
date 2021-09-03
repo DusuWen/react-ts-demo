@@ -11,17 +11,14 @@ export default defineConfig((configEnv) => {
       alias: [{ find: '@', replacement: '/src' }],
     },
     plugins: [
-      linterPlugin({
-        include: [
-          './src/**/*.ts',
-          './src/**/*.tsx',
-          './src/**/*.js',
-          './src/**/*.jsx',
-        ],
-        linters: [new EsLinter({ configEnv })],
-      }),
-      reactJsx(),
-      reactRefresh(),
-    ]
+      reactJsx()
+    ],
+    build: {
+      lib: {
+        entry: './src/standalone.tsx',
+        name: 'renderReact',
+        fileName: 'render-react'
+      }
+    }
   };
 });

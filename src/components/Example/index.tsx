@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { useState } from 'react';
 
 import styles from './index.module.less';
 
@@ -8,6 +9,7 @@ export interface ExampleProps {
 }
 
 export function Example({ className, title = 'Example' }: ExampleProps) {
+  const [ count, setCount ] = useState(0)
   return (
     <div className={cn(styles.container, className)}>
       <a
@@ -22,7 +24,8 @@ export function Example({ className, title = 'Example' }: ExampleProps) {
         />
       </a>
       <header className={styles.header}>
-        <h1 className={styles.title}>{title}</h1>
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+        <h1 className={styles.title} onClick={() => setCount(count +1)}>{title}{count}</h1>
         <svg
           className={styles.waves}
           xmlns="http://www.w3.org/2000/svg"

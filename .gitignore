@@ -1,6 +1,7 @@
 # MacOS / Windows 等系统文件
 .DS_Store
 Thumbs.db
+.idea
 
 # Node 依赖目录
 node_modules/
